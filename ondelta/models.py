@@ -36,7 +36,7 @@ class OnDeltaMixin(models.Model):
         return [f.name for f in self._meta.fields if f.name not in {'c', 'id'}]
 
     def _ondelta_take_snapshot(self):
-        self._ondelta_shadow = copy.copy(self)
+        self._ondelta_shadow = copy.deepcopy(self)
 
     def _ondelta_get_differences(self):
 
